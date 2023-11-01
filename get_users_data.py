@@ -1,5 +1,4 @@
-import get_data
-
+from get_data import get_data as get
 def get_users_data(data:dict) -> list:
     """
     Take the data of the first name, last name and phone number. Return the list.
@@ -12,3 +11,12 @@ def get_users_data(data:dict) -> list:
     Returns:
         list: users data list
     """
+    l=[]
+    for i in data['results']:
+        s={}
+        s["first_name"]=i['name']['first']
+        s["last_name"]=i['name']['last']
+        s["phone_number"]=i['phone']
+        l.append(s)
+    return l
+print(get_users_data(get('randomuser_data.json')))
