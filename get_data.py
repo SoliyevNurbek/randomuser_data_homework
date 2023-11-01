@@ -9,5 +9,5 @@
 
 from json import loads
 def get_data(filename:str) -> dict:
-    f=loads(open(filename).read())
+    f=loads(open(filename, 'r', encoding='UTF8').read())
     return f
